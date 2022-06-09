@@ -1,0 +1,9 @@
+.DS_Store
+logs
+*.log*
+node_modules
+.npm
+.eslintcache
+.yarn-integrity
+.env
+dist
