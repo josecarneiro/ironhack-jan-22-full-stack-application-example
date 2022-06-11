@@ -1,4 +1,3 @@
-/* Stateless component */
 const PetForm = (props) => {
   return (
     <form>
@@ -12,7 +11,6 @@ const PetForm = (props) => {
           props.onPetChange({ ...props.pet, name: event.target.value });
         }}
       />
-
       <label htmlFor="input-species">Pet Species</label>
       <select
         id="input-species"
@@ -24,7 +22,6 @@ const PetForm = (props) => {
         <option value="cat">Cat</option>
         <option value="dog">Dog</option>
       </select>
-
       <label htmlFor="input-picture">Pet Picture</label>
       <input
         id="input-picture"
