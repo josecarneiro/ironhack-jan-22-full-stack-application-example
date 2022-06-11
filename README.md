@@ -8,6 +8,8 @@
 - Detail - Display details on a single pet.
 - Create - Allow user to add single pet to application.
 - Edit - Allow user to update single pet.
+- LogIn - Allows visitor to log into existing account.
+- Register - Allows visitor to create new account.
 
 ### Services
 
@@ -16,6 +18,11 @@
 - editPet - issues PATCH to '/pet/:id' - Edit single pet.
 - deletePet - issues DELETE to '/pet/:id' - Delete single pet.
 - createPet - issues POST to '/pet' - Creates single pet.
+
+- registerUser - issues a POST to '/authentication/sign-up' - Registers new user.
+- logInUser - issues a POST to '/authentication/sign-in' - Authenticates existing user.
+- signOutUser - issues a POST to '/authentication/sign-out' - Signs out user.
+- loadUserInformation - issues a GET to '/authentication/me' - Loads information about authenticated user.
 
 ## Server
 
@@ -34,3 +41,8 @@
 - PATCH - '/pet/:id' - Edit single pet.
 - DELETE - '/pet/:id' - Delete single pet.
 - POST - '/pet' - Creates single pet.
+
+- POST - '/authentication/sign-up' - Registers new user.
+- POST - '/authentication/sign-in' - Authenticates existing user.
+- POST - '/authentication/sign-out' - Signs out user.
+- GET - '/authentication/me' - Loads information about authenticated user.

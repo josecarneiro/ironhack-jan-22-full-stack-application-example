@@ -16,3 +16,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+}
