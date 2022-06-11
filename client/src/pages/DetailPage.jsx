@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { loadPet } from '../services/pet';
+import { Link, useParams, useNavigate } from 'react-router-dom';
+import { deletePet, loadPet } from '../services/pet';
 
 const DetailPage = () => {
   const [pet, setPet] = useState(null);
 
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     loadPet(id).then((data) => {
@@ -13,12 +15,22 @@ const DetailPage = () => {
     });
   }, [id]);
 
+  const handlePetDeletion = () => {
+    deletePet(id).then(() => {
+      navigate('/');
+    });
+  };
+
   return (
     <div>
       {pet && (
         <>
           <h1>{pet.name}</h1>
           <strong>{pet.species}</strong>
+          <br />
+          <Link to={`/${id}/edit`}>Edit Pet</Link>
+          <br />
+          <button onClick={handlePetDeletion}>Delete Pet</button>
         </>
       )}
     </div>
