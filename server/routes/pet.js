@@ -38,8 +38,8 @@ router.delete('/:id', (req, res, next) => {
 
 router.patch('/:id', (req, res, next) => {
   const { id } = req.params;
-  const { name, species, picture } = req.body;
-  Pet.findByIdAndUpdate(id, { name, species, picture }, { new: true })
+  const { name, species, picture, position } = req.body;
+  Pet.findByIdAndUpdate(id, { name, species, picture, position }, { new: true })
     .then((pet) => {
       res.json({ pet });
     })
@@ -49,8 +49,8 @@ router.patch('/:id', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  const { name, species, picture } = req.body;
-  Pet.create({ name, species, picture })
+  const { name, species, picture, position } = req.body;
+  Pet.create({ name, species, picture, position })
     .then((pet) => {
       res.json({ pet });
     })

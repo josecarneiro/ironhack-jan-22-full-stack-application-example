@@ -1,3 +1,6 @@
+import ImageInput from './ImageInput';
+import PetMap from './PetMap';
+
 const PetForm = (props) => {
   return (
     <form>
@@ -23,13 +26,17 @@ const PetForm = (props) => {
         <option value="dog">Dog</option>
       </select>
       <label htmlFor="input-picture">Pet Picture</label>
-      <input
-        id="input-picture"
-        type="text"
-        placeholder="Pet Picture"
-        value={props.pet.picture}
-        onChange={(event) => {
-          props.onPetChange({ ...props.pet, picture: event.target.value });
+      <ImageInput
+        image={props.pet.picture}
+        onImageChange={(url) => {
+          props.onPetChange({ ...props.pet, picture: url });
+        }}
+      />
+
+      <PetMap
+        marker={props.pet.position}
+        onMarkerChange={(value) => {
+          props.onPetChange({ ...props.pet, position: value });
         }}
       />
     </form>

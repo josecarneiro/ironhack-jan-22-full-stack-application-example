@@ -10,6 +10,7 @@ const logger = require('morgan');
 const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
+const baseRouter = require('./routes/base');
 const petRouter = require('./routes/pet');
 const authenticationRouter = require('./routes/authentication');
 
@@ -48,6 +49,7 @@ app.use(
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
+app.use('/', baseRouter);
 app.use('/pet', petRouter);
 app.use('/authentication', authenticationRouter);
 

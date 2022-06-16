@@ -12,7 +12,15 @@ const schema = new mongoose.Schema({
     required: true,
     enum: ['dog', 'cat']
   },
-  picture: String
+  picture: String,
+  position: {
+    lat: {
+      type: Number
+    },
+    lng: {
+      type: Number
+    }
+  }
 });
 
 const Pet = mongoose.model('Pet', schema);

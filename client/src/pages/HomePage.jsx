@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import PetMapList from '../components/PetMapList';
 import { listPets } from '../services/pet';
 
 const HomePage = () => {
@@ -11,6 +12,12 @@ const HomePage = () => {
     });
   }, []);
 
+  const navigate = useNavigate();
+
+  const handleMarkerOpen = (id) => {
+    navigate(`/${id}`);
+  };
+
   return (
     <div>
       <ul>
@@ -19,6 +26,7 @@ const HomePage = () => {
             <Link to={`/${pet._id}`}>{pet.name}</Link>
           </li>
         ))}
+        <PetMapList pets={pets} onMarkerOpen={handleMarkerOpen} />
       </ul>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
+import PetMap from '../components/PetMap';
 import { deletePet, loadPet } from '../services/pet';
 
 const DetailPage = () => {
@@ -27,6 +28,7 @@ const DetailPage = () => {
         <>
           <h1>{pet.name}</h1>
           <strong>{pet.species}</strong>
+          <PetMap marker={pet.position} />
           <br />
           <Link to={`/${id}/edit`}>Edit Pet</Link>
           <br />

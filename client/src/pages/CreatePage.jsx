@@ -4,7 +4,12 @@ import { createPet } from '../services/pet';
 import { useNavigate } from 'react-router-dom';
 
 const CreatePage = () => {
-  const [pet, setPet] = useState({ name: '', species: 'dog', picture: '' });
+  const [pet, setPet] = useState({
+    name: '',
+    species: 'dog',
+    picture: '',
+    position: null
+  });
   const navigate = useNavigate();
 
   const handlePetCreation = () => {
